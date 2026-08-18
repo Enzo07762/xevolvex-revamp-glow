@@ -28,7 +28,7 @@ function IndustriasHub() {
       <Section>
         <div className="grid gap-8 md:grid-cols-2">
           {industries.map((i) => (
-            <Link key={i.slug} to={`/industrias/${i.slug}`} className="group border border-border">
+            <Link key={i.slug} to="/industrias/$slug" params={{ slug: i.slug }} className="group border border-border">
               <div className="relative overflow-hidden">
                 <img
                   src={i.image}

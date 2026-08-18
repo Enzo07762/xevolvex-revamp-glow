@@ -30,7 +30,7 @@ function ServiciosHub() {
           {services.map((s) => (
             <Link
               key={s.slug}
-              to={`/servicios/${s.slug}`}
+              to="/servicios/$slug" params={{ slug: s.slug }}
               className="group bg-background p-8 transition-colors hover:bg-accent/40 md:p-10"
             >
               <div className="flex items-start justify-between gap-4">

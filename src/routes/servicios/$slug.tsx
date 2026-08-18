@@ -95,7 +95,7 @@ function ServicePage() {
           {industries.map((i) => (
             <Link
               key={i.slug}
-              to={`/industrias/${i.slug}`}
+              to="/industrias/$slug" params={{ slug: i.slug }}
               className="border border-border px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-signal hover:text-foreground"
             >
               {i.name}
@@ -108,7 +108,7 @@ function ServicePage() {
             .map((s) => (
               <Link
                 key={s.slug}
-                to={`/servicios/${s.slug}`}
+                to="/servicios/$slug" params={{ slug: s.slug }}
                 className="border border-border px-4 py-2 font-display text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:border-signal hover:text-foreground"
               >
                 {s.name}

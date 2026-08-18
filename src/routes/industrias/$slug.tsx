@@ -105,7 +105,7 @@ function IndustryPage() {
                 .map((i) => (
                   <Link
                     key={i.slug}
-                    to={`/industrias/${i.slug}`}
+                    to="/industrias/$slug" params={{ slug: i.slug }}
                     className="border border-border px-4 py-2 text-xs text-muted-foreground transition-colors hover:border-signal hover:text-foreground"
                   >
                     {i.name}

@@ -130,7 +130,7 @@ function Home() {
           {services.map((s) => (
             <Link
               key={s.slug}
-              to={`/servicios/${s.slug}`}
+              to="/servicios/$slug" params={{ slug: s.slug }}
               className="group bg-background p-8 transition-colors hover:bg-accent/40"
             >
               <div className="flex items-start justify-between gap-4">
@@ -154,7 +154,7 @@ function Home() {
           {industries.map((i) => (
             <Link
               key={i.slug}
-              to={`/industrias/${i.slug}`}
+              to="/industrias/$slug" params={{ slug: i.slug }}
               className="group relative overflow-hidden border border-border"
             >
               <img
@@ -244,7 +244,7 @@ function Home() {
           {posts.slice(0, 3).map((p) => (
             <Link
               key={p.slug}
-              to={`/blog/${p.slug}`}
+              to="/blog/$slug" params={{ slug: p.slug }}
               className="group bg-background p-8 transition-colors hover:bg-accent/40"
             >
               <p className="eyebrow">{p.category}</p>
