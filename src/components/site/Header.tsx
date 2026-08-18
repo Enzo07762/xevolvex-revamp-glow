@@ -3,6 +3,8 @@ import { Link } from "@tanstack/react-router";
 import { Menu, X, ExternalLink } from "lucide-react";
 import { Logo } from "./Logo";
 import { nav, site } from "@/content/site";
+
+const fleetPlatform = site.platforms[0]?.href ?? "https://track.gpsdelperu.com/";
 import { services } from "@/content/services";
 import { industries } from "@/content/industries";
 
@@ -31,7 +33,7 @@ export function Header() {
               USA {site.phoneUsa}
             </a>
             <a
-              href={site.platforms[0].href}
+              href={fleetPlatform}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 text-signal-soft hover:text-foreground"
@@ -130,7 +132,7 @@ export function Header() {
               Soporte técnico
             </Link>
             <a
-              href={site.platforms[0].href}
+              href={fleetPlatform}
               target="_blank"
               rel="noopener noreferrer"
               className="block py-2 text-sm text-signal-soft"
