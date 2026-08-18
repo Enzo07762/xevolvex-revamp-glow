@@ -11,7 +11,11 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CasosDeExitoRouteImport } from './routes/casos-de-exito'
+import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as NosotrosRouteImport } from './routes/nosotros'
+import { Route as PoliticasDePrivacidadRouteImport } from './routes/politicas-de-privacidad'
+import { Route as SoporteTecnicoRouteImport } from './routes/soporte-tecnico'
+import { Route as TerminosRouteImport } from './routes/terminos'
 import { Route as BlogIndexRouteImport } from './routes/blog/index'
 import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
 import { Route as IndustriasIndexRouteImport } from './routes/industrias/index'
@@ -29,9 +33,29 @@ const CasosDeExitoRoute = CasosDeExitoRouteImport.update({
   path: '/casos-de-exito',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactoRoute = ContactoRouteImport.update({
+  id: '/contacto',
+  path: '/contacto',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NosotrosRoute = NosotrosRouteImport.update({
   id: '/nosotros',
   path: '/nosotros',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoliticasDePrivacidadRoute = PoliticasDePrivacidadRouteImport.update({
+  id: '/politicas-de-privacidad',
+  path: '/politicas-de-privacidad',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SoporteTecnicoRoute = SoporteTecnicoRouteImport.update({
+  id: '/soporte-tecnico',
+  path: '/soporte-tecnico',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TerminosRoute = TerminosRouteImport.update({
+  id: '/terminos',
+  path: '/terminos',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogIndexRoute = BlogIndexRouteImport.update({
@@ -68,7 +92,11 @@ const ServiciosSlugRoute = ServiciosSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/casos-de-exito': typeof CasosDeExitoRoute
+  '/contacto': typeof ContactoRoute
   '/nosotros': typeof NosotrosRoute
+  '/politicas-de-privacidad': typeof PoliticasDePrivacidadRoute
+  '/soporte-tecnico': typeof SoporteTecnicoRoute
+  '/terminos': typeof TerminosRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/industrias/$slug': typeof IndustriasSlugRoute
   '/servicios/$slug': typeof ServiciosSlugRoute
@@ -79,7 +107,11 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/casos-de-exito': typeof CasosDeExitoRoute
+  '/contacto': typeof ContactoRoute
   '/nosotros': typeof NosotrosRoute
+  '/politicas-de-privacidad': typeof PoliticasDePrivacidadRoute
+  '/soporte-tecnico': typeof SoporteTecnicoRoute
+  '/terminos': typeof TerminosRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/industrias/$slug': typeof IndustriasSlugRoute
   '/servicios/$slug': typeof ServiciosSlugRoute
@@ -91,7 +123,11 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/casos-de-exito': typeof CasosDeExitoRoute
+  '/contacto': typeof ContactoRoute
   '/nosotros': typeof NosotrosRoute
+  '/politicas-de-privacidad': typeof PoliticasDePrivacidadRoute
+  '/soporte-tecnico': typeof SoporteTecnicoRoute
+  '/terminos': typeof TerminosRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/industrias/$slug': typeof IndustriasSlugRoute
   '/servicios/$slug': typeof ServiciosSlugRoute
@@ -104,7 +140,11 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/casos-de-exito'
+    | '/contacto'
     | '/nosotros'
+    | '/politicas-de-privacidad'
+    | '/soporte-tecnico'
+    | '/terminos'
     | '/blog/$slug'
     | '/industrias/$slug'
     | '/servicios/$slug'
@@ -115,7 +155,11 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/casos-de-exito'
+    | '/contacto'
     | '/nosotros'
+    | '/politicas-de-privacidad'
+    | '/soporte-tecnico'
+    | '/terminos'
     | '/blog/$slug'
     | '/industrias/$slug'
     | '/servicios/$slug'
@@ -126,7 +170,11 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/casos-de-exito'
+    | '/contacto'
     | '/nosotros'
+    | '/politicas-de-privacidad'
+    | '/soporte-tecnico'
+    | '/terminos'
     | '/blog/$slug'
     | '/industrias/$slug'
     | '/servicios/$slug'
@@ -138,7 +186,11 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CasosDeExitoRoute: typeof CasosDeExitoRoute
+  ContactoRoute: typeof ContactoRoute
   NosotrosRoute: typeof NosotrosRoute
+  PoliticasDePrivacidadRoute: typeof PoliticasDePrivacidadRoute
+  SoporteTecnicoRoute: typeof SoporteTecnicoRoute
+  TerminosRoute: typeof TerminosRoute
   BlogSlugRoute: typeof BlogSlugRoute
   IndustriasSlugRoute: typeof IndustriasSlugRoute
   ServiciosSlugRoute: typeof ServiciosSlugRoute
@@ -163,11 +215,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CasosDeExitoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contacto': {
+      id: '/contacto'
+      path: '/contacto'
+      fullPath: '/contacto'
+      preLoaderRoute: typeof ContactoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/nosotros': {
       id: '/nosotros'
       path: '/nosotros'
       fullPath: '/nosotros'
       preLoaderRoute: typeof NosotrosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/politicas-de-privacidad': {
+      id: '/politicas-de-privacidad'
+      path: '/politicas-de-privacidad'
+      fullPath: '/politicas-de-privacidad'
+      preLoaderRoute: typeof PoliticasDePrivacidadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/soporte-tecnico': {
+      id: '/soporte-tecnico'
+      path: '/soporte-tecnico'
+      fullPath: '/soporte-tecnico'
+      preLoaderRoute: typeof SoporteTecnicoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terminos': {
+      id: '/terminos'
+      path: '/terminos'
+      fullPath: '/terminos'
+      preLoaderRoute: typeof TerminosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog/': {
@@ -218,7 +298,11 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CasosDeExitoRoute: CasosDeExitoRoute,
+  ContactoRoute: ContactoRoute,
   NosotrosRoute: NosotrosRoute,
+  PoliticasDePrivacidadRoute: PoliticasDePrivacidadRoute,
+  SoporteTecnicoRoute: SoporteTecnicoRoute,
+  TerminosRoute: TerminosRoute,
   BlogSlugRoute: BlogSlugRoute,
   IndustriasSlugRoute: IndustriasSlugRoute,
   ServiciosSlugRoute: ServiciosSlugRoute,
