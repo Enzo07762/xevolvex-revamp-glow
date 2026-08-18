@@ -10,33 +10,89 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as IndustriasIndexRouteImport } from './routes/industrias/index'
+import { Route as IndustriasSlugRouteImport } from './routes/industrias/$slug'
+import { Route as ServiciosIndexRouteImport } from './routes/servicios/index'
+import { Route as ServiciosSlugRouteImport } from './routes/servicios/$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IndustriasIndexRoute = IndustriasIndexRouteImport.update({
+  id: '/industrias/',
+  path: '/industrias/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriasSlugRoute = IndustriasSlugRouteImport.update({
+  id: '/industrias/$slug',
+  path: '/industrias/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServiciosIndexRoute = ServiciosIndexRouteImport.update({
+  id: '/servicios/',
+  path: '/servicios/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServiciosSlugRoute = ServiciosSlugRouteImport.update({
+  id: '/servicios/$slug',
+  path: '/servicios/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/industrias/$slug': typeof IndustriasSlugRoute
+  '/servicios/$slug': typeof ServiciosSlugRoute
+  '/industrias/': typeof IndustriasIndexRoute
+  '/servicios/': typeof ServiciosIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/industrias/$slug': typeof IndustriasSlugRoute
+  '/servicios/$slug': typeof ServiciosSlugRoute
+  '/industrias': typeof IndustriasIndexRoute
+  '/servicios': typeof ServiciosIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/industrias/$slug': typeof IndustriasSlugRoute
+  '/servicios/$slug': typeof ServiciosSlugRoute
+  '/industrias/': typeof IndustriasIndexRoute
+  '/servicios/': typeof ServiciosIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/industrias/$slug'
+    | '/servicios/$slug'
+    | '/industrias/'
+    | '/servicios/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/industrias/$slug'
+    | '/servicios/$slug'
+    | '/industrias'
+    | '/servicios'
+  id:
+    | '__root__'
+    | '/'
+    | '/industrias/$slug'
+    | '/servicios/$slug'
+    | '/industrias/'
+    | '/servicios/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  IndustriasSlugRoute: typeof IndustriasSlugRoute
+  ServiciosSlugRoute: typeof ServiciosSlugRoute
+  IndustriasIndexRoute: typeof IndustriasIndexRoute
+  ServiciosIndexRoute: typeof ServiciosIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +104,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/industrias/': {
+      id: '/industrias/'
+      path: '/industrias'
+      fullPath: '/industrias/'
+      preLoaderRoute: typeof IndustriasIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industrias/$slug': {
+      id: '/industrias/$slug'
+      path: '/industrias/$slug'
+      fullPath: '/industrias/$slug'
+      preLoaderRoute: typeof IndustriasSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/servicios/': {
+      id: '/servicios/'
+      path: '/servicios'
+      fullPath: '/servicios/'
+      preLoaderRoute: typeof ServiciosIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/servicios/$slug': {
+      id: '/servicios/$slug'
+      path: '/servicios/$slug'
+      fullPath: '/servicios/$slug'
+      preLoaderRoute: typeof ServiciosSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  IndustriasSlugRoute: IndustriasSlugRoute,
+  ServiciosSlugRoute: ServiciosSlugRoute,
+  IndustriasIndexRoute: IndustriasIndexRoute,
+  ServiciosIndexRoute: ServiciosIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
