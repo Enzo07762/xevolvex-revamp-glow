@@ -92,6 +92,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "XEVOLVEX" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "XEVOLVEX | Telemática, IA e IoT para operaciones críticas" },
+      { name: "twitter:title", content: "XEVOLVEX | Telemática, IA e IoT para operaciones críticas" },
+      { property: "og:description", content: "Integradores de telemática, gestión de fatiga y flotas con IA, IoT y Centro de Monitoreo 24/7 en Perú y las Américas." },
+      { name: "twitter:description", content: "Integradores de telemática, gestión de fatiga y flotas con IA, IoT y Centro de Monitoreo 24/7 en Perú y las Américas." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/25038323d8e2cf93914ee1ca114798fb/id-preview-6e725c70--75d8886f-dca8-41a6-860c-ac870323c185.lovable.app-1787028286889.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/25038323d8e2cf93914ee1ca114798fb/id-preview-6e725c70--75d8886f-dca8-41a6-860c-ac870323c185.lovable.app-1787028286889.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
