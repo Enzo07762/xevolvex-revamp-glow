@@ -10,6 +10,10 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CasosDeExitoRouteImport } from './routes/casos-de-exito'
+import { Route as NosotrosRouteImport } from './routes/nosotros'
+import { Route as BlogIndexRouteImport } from './routes/blog/index'
+import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
 import { Route as IndustriasIndexRouteImport } from './routes/industrias/index'
 import { Route as IndustriasSlugRouteImport } from './routes/industrias/$slug'
 import { Route as ServiciosIndexRouteImport } from './routes/servicios/index'
@@ -18,6 +22,26 @@ import { Route as ServiciosSlugRouteImport } from './routes/servicios/$slug'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CasosDeExitoRoute = CasosDeExitoRouteImport.update({
+  id: '/casos-de-exito',
+  path: '/casos-de-exito',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NosotrosRoute = NosotrosRouteImport.update({
+  id: '/nosotros',
+  path: '/nosotros',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndustriasIndexRoute = IndustriasIndexRouteImport.update({
@@ -43,23 +67,35 @@ const ServiciosSlugRoute = ServiciosSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/casos-de-exito': typeof CasosDeExitoRoute
+  '/nosotros': typeof NosotrosRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/industrias/$slug': typeof IndustriasSlugRoute
   '/servicios/$slug': typeof ServiciosSlugRoute
+  '/blog/': typeof BlogIndexRoute
   '/industrias/': typeof IndustriasIndexRoute
   '/servicios/': typeof ServiciosIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/casos-de-exito': typeof CasosDeExitoRoute
+  '/nosotros': typeof NosotrosRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/industrias/$slug': typeof IndustriasSlugRoute
   '/servicios/$slug': typeof ServiciosSlugRoute
+  '/blog': typeof BlogIndexRoute
   '/industrias': typeof IndustriasIndexRoute
   '/servicios': typeof ServiciosIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/casos-de-exito': typeof CasosDeExitoRoute
+  '/nosotros': typeof NosotrosRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/industrias/$slug': typeof IndustriasSlugRoute
   '/servicios/$slug': typeof ServiciosSlugRoute
+  '/blog/': typeof BlogIndexRoute
   '/industrias/': typeof IndustriasIndexRoute
   '/servicios/': typeof ServiciosIndexRoute
 }
@@ -67,30 +103,46 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/casos-de-exito'
+    | '/nosotros'
+    | '/blog/$slug'
     | '/industrias/$slug'
     | '/servicios/$slug'
+    | '/blog/'
     | '/industrias/'
     | '/servicios/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/casos-de-exito'
+    | '/nosotros'
+    | '/blog/$slug'
     | '/industrias/$slug'
     | '/servicios/$slug'
+    | '/blog'
     | '/industrias'
     | '/servicios'
   id:
     | '__root__'
     | '/'
+    | '/casos-de-exito'
+    | '/nosotros'
+    | '/blog/$slug'
     | '/industrias/$slug'
     | '/servicios/$slug'
+    | '/blog/'
     | '/industrias/'
     | '/servicios/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CasosDeExitoRoute: typeof CasosDeExitoRoute
+  NosotrosRoute: typeof NosotrosRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   IndustriasSlugRoute: typeof IndustriasSlugRoute
   ServiciosSlugRoute: typeof ServiciosSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
   IndustriasIndexRoute: typeof IndustriasIndexRoute
   ServiciosIndexRoute: typeof ServiciosIndexRoute
 }
@@ -102,6 +154,34 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/casos-de-exito': {
+      id: '/casos-de-exito'
+      path: '/casos-de-exito'
+      fullPath: '/casos-de-exito'
+      preLoaderRoute: typeof CasosDeExitoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/nosotros': {
+      id: '/nosotros'
+      path: '/nosotros'
+      fullPath: '/nosotros'
+      preLoaderRoute: typeof NosotrosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/industrias/': {
@@ -137,8 +217,12 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CasosDeExitoRoute: CasosDeExitoRoute,
+  NosotrosRoute: NosotrosRoute,
+  BlogSlugRoute: BlogSlugRoute,
   IndustriasSlugRoute: IndustriasSlugRoute,
   ServiciosSlugRoute: ServiciosSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
   IndustriasIndexRoute: IndustriasIndexRoute,
   ServiciosIndexRoute: ServiciosIndexRoute,
 }
