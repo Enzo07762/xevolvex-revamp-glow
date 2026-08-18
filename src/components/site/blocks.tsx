@@ -8,8 +8,8 @@ export function Section({
   id,
 }: {
   children: ReactNode;
-  className?: string;
-  id?: string;
+  className?: string | undefined;
+  id?: string | undefined;
 }) {
   return (
     <section id={id} className={`border-t border-border/60 py-20 md:py-28 ${className}`}>
@@ -26,8 +26,8 @@ export function SectionHead({
 }: {
   eyebrow: string;
   title: ReactNode;
-  body?: string;
-  className?: string;
+  body?: string | undefined;
+  className?: string | undefined;
 }) {
   return (
     <div className={`max-w-3xl ${className}`}>
@@ -45,7 +45,7 @@ export function CtaLink({
 }: {
   to: string;
   children: ReactNode;
-  variant?: "solid" | "ghost";
+  variant?: "solid" | "ghost" | undefined;
 }) {
   const base =
     "inline-flex items-center gap-2 px-6 py-3.5 font-display text-xs font-semibold uppercase tracking-[0.16em] transition-all";
@@ -91,11 +91,11 @@ export function PageHero({
 }: {
   eyebrow: string;
   title: string;
-  lede?: string;
+  lede?: string | undefined;
   trail?: { label: string; to?: string }[];
-  image?: string;
-  imageAlt?: string;
-  aside?: ReactNode;
+  image?: string | undefined;
+  imageAlt?: string | undefined;
+  aside?: ReactNode | undefined;
 }) {
   return (
     <section className="relative overflow-hidden bg-gradient-deep">
@@ -145,8 +145,8 @@ export function FinalCta({
   title = "Permítanos maximizar la eficiencia de sus operaciones",
   body = "Cuéntenos qué necesita controlar y le proponemos la arquitectura completa: equipos, conectividad, plataforma y monitoreo humano 24/7.",
 }: {
-  title?: string;
-  body?: string;
+  title?: string | undefined;
+  body?: string | undefined;
 }) {
   return (
     <section className="relative overflow-hidden border-t border-border">

@@ -10,9 +10,9 @@ export function LeadForm({
   defaultIndustry,
   defaultService,
 }: {
-  mode?: Mode;
-  defaultIndustry?: string;
-  defaultService?: string;
+  mode?: Mode | undefined;
+  defaultIndustry?: string | undefined;
+  defaultService?: string | undefined;
 }) {
   const [sending, setSending] = useState(false);
 
@@ -113,9 +113,9 @@ function Field({
 }: {
   label: string;
   name: string;
-  type?: string;
-  required?: boolean;
-  min?: number;
+  type?: string | undefined;
+  required?: boolean | undefined;
+  min?: number | undefined;
 }) {
   return (
     <div className="grid gap-2">
@@ -142,7 +142,7 @@ function Select({
 }: {
   label: string;
   name: string;
-  defaultValue?: string;
+  defaultValue?: string | undefined;
   children: React.ReactNode;
 }) {
   return (
